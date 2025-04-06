@@ -35,7 +35,9 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
-  carousel_slider: ^4.2.1
+  carousel_slider: ^5.0.0
+  video_player: ^2.8.2
+
 
 
 dev_dependencies:
@@ -64,6 +66,7 @@ flutter:
     - assets/images/kemeja_casual.png
     - assets/images/sepatu_sport.png
     - assets/images/jam_tangan.png
+    - assets/images/banner_promo.png
     - assets/images/image 1.png
     - assets/images/image 2.png
     - assets/images/image 3.png
@@ -72,6 +75,8 @@ flutter:
     - assets/images/image 6.jpg
     - assets/images/image 7.jpg
     - assets/images/image 8.jpg
+
+
     - assets/images/icon1.png
     - assets/images/icon2.png
     - assets/images/icon3.png
@@ -82,7 +87,34 @@ flutter:
     - assets/images/icon8.png
     - assets/images/icon9.png
     - assets/images/icon10.png
+    - assets/images/icon11.png
+    - assets/images/icon12.png
+    - assets/images/icon13.png
+    - assets/images/icon14.png
+    - assets/images/icon15.png
+    - assets/images/icon16.png
+    - assets/images/icon17.png
+    - assets/images/icon18.png
+    - assets/images/icon19.png
+    - assets/images/icon20.png
+    - assets/images/icon21.png
+    - assets/images/icon22.png
+    - assets/images/icon23.png
+    - assets/images/icon24.png
+    - assets/images/icon25.png
+    - assets/images/icon26.png
+    - assets/images/icon27.png
+    - assets/images/icon28.png
+    - assets/images/icon29.png
+    - assets/images/icon30.png
+    - assets/images/icon31.png
+    - assets/images/icon32.png
+    - assets/images/icon33.png
 
+
+    - assets/videos/video_1.mp4
+    - assets/videos/video_2.mp4
+    - assets/videos/video_3.mp4
 
 
   # To add assets to your application, add an assets section, like this:

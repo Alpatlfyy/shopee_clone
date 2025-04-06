@@ -37,7 +37,7 @@ class _MainScreenState extends State<MainScreen> {
       bottomNavigationBar: BottomNavigationBar(
         items: const [
           BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Beranda'),
-          BottomNavigationBarItem(icon: Icon(Icons.live_tv), label: 'Live'),
+          BottomNavigationBarItem(icon: Icon(Icons.live_tv), label: 'Trending'),
           BottomNavigationBarItem(icon: Icon(Icons.play_circle_fill), label: 'Video'),
           BottomNavigationBarItem(icon: Icon(Icons.notifications), label: 'Notifikasi'),
           BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Saya'),

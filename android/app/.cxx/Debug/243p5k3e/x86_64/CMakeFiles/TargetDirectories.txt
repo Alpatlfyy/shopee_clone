@@ -1,0 +1,2 @@
+D:/file praktik android 2/shopee_dashboard/android/app/.cxx/Debug/243p5k3e/x86_64/CMakeFiles/edit_cache.dir
+D:/file praktik android 2/shopee_dashboard/android/app/.cxx/Debug/243p5k3e/x86_64/CMakeFiles/rebuild_cache.dir

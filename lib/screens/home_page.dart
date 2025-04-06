@@ -159,7 +159,7 @@ class HomePage extends StatelessWidget {
                                 ),
                               ),
                               const SizedBox(width: 4),
-                              const Icon(Icons.arrow_forward_ios, size: 18, color: Colors.deepOrange),
+                              const Icon(Icons.arrow_forward_ios, size: 18 , color: Colors.deepOrange),
                             ],
                           ),
                         ),
