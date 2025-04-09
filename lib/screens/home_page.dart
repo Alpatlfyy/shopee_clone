@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'sgame.dart';
+import 'spilihlokal.dart';
+import 'spsekitar.dart';
+
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -95,27 +99,71 @@ class HomePage extends StatelessWidget {
               height: 100,
               child: PageView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: (categories.length / 5).ceil(), // ✅ Setiap halaman berisi 5 ikon
+                itemCount: (categories.length / 5).ceil(),
                 itemBuilder: (context, pageIndex) {
                   return Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: List.generate(5, (index) {
                       int dataIndex = pageIndex * 5 + index;
-                      if (dataIndex >= categories.length) return const SizedBox(); // Menghindari error jika kurang dari 5 item
-                      return ClipRRect(
-                        borderRadius: BorderRadius.circular(50), // ✅ Agar gambar tetap bulat
+                      if (dataIndex >= categories.length) return const SizedBox();
+
+                      final iconWidget = ClipRRect(
+                        borderRadius: BorderRadius.circular(50),
                         child: Image.asset(
-                          'assets/images/icon${dataIndex + 1}.png', // ✅ Menggunakan icon1.png - icon10.png
-                          width: 70, // ✅ Ukuran ikon
+                          'assets/images/icon${dataIndex + 1}.png',
+                          width: 70,
                           height: 70,
                           fit: BoxFit.cover,
                         ),
                       );
+
+                      // Navigasi ke SGame (icon4)
+                      if (dataIndex == 3) {
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const SGame()),
+                            );
+                          },
+                          child: iconWidget,
+                        );
+                      }
+
+                      // Navigasi ke SpilihLokal (icon5)
+                      if (dataIndex == 4) {
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const SpilihLokal()),
+                            );
+                          },
+                          child: iconWidget,
+                        );
+                      }
+
+                      // ✅ Navigasi ke SpSekitar (icon6)
+                      if (dataIndex == 5) {
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(builder: (context) => const SpSekitar()),
+                            );
+                          },
+                          child: iconWidget,
+                        );
+                      }
+
+                      return iconWidget;
                     }),
                   );
                 },
               ),
             ),
+
+
 
 
 
