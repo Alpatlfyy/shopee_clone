@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'pulsa_tagihan.dart';
+import 'keuangan.dart';
+import 'shopeevip.dart';
 import 'sgame.dart';
 import 'spilihlokal.dart';
 import 'spsekitar.dart';
@@ -99,71 +102,65 @@ class HomePage extends StatelessWidget {
               height: 100,
               child: PageView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: (categories.length / 5).ceil(),
-                itemBuilder: (context, pageIndex) {
-                  return Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: List.generate(5, (index) {
-                      int dataIndex = pageIndex * 5 + index;
-                      if (dataIndex >= categories.length) return const SizedBox();
+                itemCount: (categories.length / 5).ceil(), // ✅ Setiap halaman berisi 5 ikon
+                  itemBuilder: (context, pageIndex) {
+                    return Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: List.generate(5, (index) {
+                        int dataIndex = pageIndex * 5 + index;
+                        if (dataIndex >= categories.length) return const SizedBox();
 
-                      final iconWidget = ClipRRect(
-                        borderRadius: BorderRadius.circular(50),
-                        child: Image.asset(
-                          'assets/images/icon${dataIndex + 1}.png',
-                          width: 70,
-                          height: 70,
-                          fit: BoxFit.cover,
-                        ),
-                      );
+                        final iconWidget = ClipRRect(
+                          borderRadius: BorderRadius.circular(50),
+                          child: Image.asset(
+                            'assets/images/icon${dataIndex + 1}.png',
+                            width: 70,
+                            height: 70,
+                            fit: BoxFit.cover,
+                          ),
+                        );
 
-                      // Navigasi ke SGame (icon4)
-                      if (dataIndex == 3) {
+                        // Navigasi sesuai urutan icon1 hingga icon6
+                        Widget? targetPage;
+                        switch (dataIndex) {
+                          case 0:
+                            targetPage = PulsaTagihanTiketPage();
+                            break;
+                          case 1:
+                            targetPage = keuangan();
+                            break;
+                          case 2:
+                            targetPage = ShopeeVipPage();
+                            break;
+                          case 3:
+                            targetPage = const SGame();
+                            break;
+                          case 4:
+                            targetPage = const SpilihLokal();
+                            break;
+                          case 5:
+                            targetPage = const SpSekitar();
+                            break;
+                          default:
+                            targetPage = null;
+                        }
+
                         return GestureDetector(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => const SGame()),
-                            );
+                            if (targetPage != null) {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (context) => targetPage!),
+                              );
+                            }
                           },
                           child: iconWidget,
                         );
-                      }
-
-                      // Navigasi ke SpilihLokal (icon5)
-                      if (dataIndex == 4) {
-                        return GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => const SpilihLokal()),
-                            );
-                          },
-                          child: iconWidget,
-                        );
-                      }
-
-                      // ✅ Navigasi ke SpSekitar (icon6)
-                      if (dataIndex == 5) {
-                        return GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(builder: (context) => const SpSekitar()),
-                            );
-                          },
-                          child: iconWidget,
-                        );
-                      }
-
-                      return iconWidget;
-                    }),
-                  );
-                },
+                      }),
+                    );
+                  }
               ),
             ),
-
-
 
 
 
@@ -201,9 +198,9 @@ class HomePage extends StatelessWidget {
                               Text(
                                 'Shopee Live',
                                 style: TextStyle(
-                                  color: Colors.deepOrange, // Primary color
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18
+                                    color: Colors.deepOrange, // Primary color
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 18
                                 ),
                               ),
                               const SizedBox(width: 4),
@@ -251,8 +248,8 @@ class HomePage extends StatelessWidget {
                               Text(
                                 'Shopee Video',
                                 style: TextStyle(
-                                  color: Colors.deepOrange, // Primary color
-                                  fontWeight: FontWeight.bold,
+                                    color: Colors.deepOrange, // Primary color
+                                    fontWeight: FontWeight.bold,
                                     fontSize: 18
                                 ),
                               ),
