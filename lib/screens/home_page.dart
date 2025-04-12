@@ -143,15 +143,13 @@ class HomePage extends StatelessWidget {
                           case 5:
                             targetPage = const SpSekitar();
                             break;
-                          case 8:
+                          case 7:
                             targetPage = const SPayLaterPage();
                             break;
-                          case 9:
+                          case 8:
                             targetPage = const TermurahSubScreen();
                             break;
-
-
-                            default:
+                          default:
                             targetPage = null;
                         }
 
