@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'spaylater.dart';
+import 'termurah.dart';
 import 'pulsa_tagihan.dart';
 import 'keuangan.dart';
 import 'shopeevip.dart';
@@ -141,7 +143,15 @@ class HomePage extends StatelessWidget {
                           case 5:
                             targetPage = const SpSekitar();
                             break;
-                          default:
+                          case 8:
+                            targetPage = const SPayLaterPage();
+                            break;
+                          case 9:
+                            targetPage = const TermurahSubScreen();
+                            break;
+
+
+                            default:
                             targetPage = null;
                         }
 
