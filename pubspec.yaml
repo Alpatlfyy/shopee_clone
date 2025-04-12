@@ -75,6 +75,30 @@ flutter:
     - assets/images/image 6.jpg
     - assets/images/image 7.jpg
     - assets/images/image 8.jpg
+    - assets/images/sendal.jpg
+    - assets/images/dompet.webp
+    - assets/images/kulot.jpg
+    - assets/images/kaoskaki.webp
+    - assets/images/tas.jpg
+    - assets/images/headset.jpg
+    - assets/images/parfum.jpg
+    - assets/images/joger.jpg
+    - assets/images/ronaldinho.jpg
+    - assets/images/vhr.png
+    - assets/images/dm.png
+    - assets/images/jmp.png
+    - assets/images/cct.png
+    - assets/images/bbk.png
+    - assets/images/diskon menyala.jpg
+    - assets/images/make up.jpg
+    - assets/images/tint.jpg
+    - assets/images/maskerkopi.jpg
+    - assets/images/serum.jpg
+    - assets/images/lipbalm.jpg
+
+
+
+
 
 
     - assets/images/icon1.png
@@ -110,6 +134,13 @@ flutter:
     - assets/images/icon31.png
     - assets/images/icon32.png
     - assets/images/icon33.png
+    - assets/images/product_1.jpg
+    - assets/images/icon34.jpg
+    - assets/images/icon35.jpg
+    - assets/images/icon36.jpg
+    - assets/images/icon37.jpg
+
+
 
 
     - assets/videos/video_1.mp4

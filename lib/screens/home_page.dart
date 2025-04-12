@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'spaylater.dart';
+import 'termurah.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    // 🛒 Data Dummy Kategori
     final List<Map<String, dynamic>> categories = [
       {'icon': Icons.local_offer, 'label': 'Promo'},
       {'icon': Icons.shopping_cart, 'label': 'Belanja'},
@@ -15,11 +16,10 @@ class HomePage extends StatelessWidget {
       {'icon': Icons.directions_car, 'label': 'Otomotif'},
       {'icon': Icons.watch, 'label': 'Aksesoris'},
       {'icon': Icons.sports_esports, 'label': 'Game'},
-      {'icon': Icons.more_horiz, 'label': 'Lainnya'},
-      {'icon': Icons.more_horiz, 'label': 'Lainnya'},
+      {'icon': Icons.more_horiz, 'label': 'SPayLater'}, // icon8.png
+      {'icon': Icons.star, 'label': 'Termurah'}, // icon9.png
     ];
 
-    // 🛍️ Data Dummy Produk
     final List<Map<String, String>> products = [
       {'image': 'assets/images/masker_buff.png', 'title': 'Masker Buff', 'price': 'Rp3.950'},
       {'image': 'assets/images/kemeja_casual.png', 'title': 'Kemeja Casual', 'price': 'Rp50.000'},
@@ -65,9 +65,7 @@ class HomePage extends StatelessWidget {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            // 🆕 Container tambahan
-            // 🆕 Container tambahan dengan gambar
-            // 🆕 Container tambahan dengan border radius 15
+            // Baris Gambar Horizontal
             Container(
               height: 80,
               margin: const EdgeInsets.symmetric(horizontal: 10),
@@ -85,6 +83,7 @@ class HomePage extends StatelessWidget {
               ),
             ),
 
+            // Kategori Ikon
             Container(
               margin: const EdgeInsets.symmetric(vertical: 8, horizontal: 10),
               padding: const EdgeInsets.symmetric(vertical: 12),
@@ -95,20 +94,39 @@ class HomePage extends StatelessWidget {
               height: 100,
               child: PageView.builder(
                 scrollDirection: Axis.horizontal,
-                itemCount: (categories.length / 5).ceil(), // ✅ Setiap halaman berisi 5 ikon
+                itemCount: (categories.length / 5).ceil(),
                 itemBuilder: (context, pageIndex) {
                   return Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: List.generate(5, (index) {
                       int dataIndex = pageIndex * 5 + index;
-                      if (dataIndex >= categories.length) return const SizedBox(); // Menghindari error jika kurang dari 5 item
-                      return ClipRRect(
-                        borderRadius: BorderRadius.circular(50), // ✅ Agar gambar tetap bulat
-                        child: Image.asset(
-                          'assets/images/icon${dataIndex + 1}.png', // ✅ Menggunakan icon1.png - icon10.png
-                          width: 70, // ✅ Ukuran ikon
-                          height: 70,
-                          fit: BoxFit.cover,
+                      if (dataIndex >= categories.length) return const SizedBox();
+
+                      return GestureDetector(
+                        onTap: () {
+                          if (dataIndex == 7) {
+                            Navigator.push(context, MaterialPageRoute(builder: (_) => const SPayLaterPage()));
+                          } else if (dataIndex == 8) {
+                            Navigator.push(context, MaterialPageRoute(builder: (_) => const TermurahSubScreen()));
+                          }
+                        },
+                        child: Column(
+                          children: [
+                            ClipRRect(
+                              borderRadius: BorderRadius.circular(50),
+                              child: Image.asset(
+                                'assets/images/icon${dataIndex + 1}.png',
+                                width: 70,
+                                height: 70,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                            const SizedBox(height: 4),
+                            Text(
+                              categories[dataIndex]['label'],
+                              style: const TextStyle(fontSize: 12),
+                            ),
+                          ],
                         ),
                       );
                     }),
@@ -117,15 +135,13 @@ class HomePage extends StatelessWidget {
               ),
             ),
 
-
-
-// 📢 Banner Promo dengan border radius 15
+            // Banner Promo
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 10),
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
               ),
-              clipBehavior: Clip.antiAlias, // Agar gambar mengikuti border radius
+              clipBehavior: Clip.antiAlias,
               child: Image.asset(
                 'assets/images/image 4.png',
                 fit: BoxFit.cover,
@@ -133,33 +149,28 @@ class HomePage extends StatelessWidget {
               ),
             ),
 
+            // Shopee Live dan Video
             Row(
               children: [
+                // Shopee Live
                 Expanded(
                   child: Container(
-                    height: 180, // Sesuai permintaan awal
+                    height: 180,
                     margin: const EdgeInsets.only(left: 10, top: 8, right: 5),
                     decoration: BoxDecoration(
-                      color: Colors.white, // Background putih
+                      color: Colors.white,
                       borderRadius: BorderRadius.circular(15),
                     ),
                     child: Stack(
                       children: [
-                        Positioned(
+                        const Positioned(
                           top: 8,
                           left: 8,
                           child: Row(
                             children: [
-                              Text(
-                                'Shopee Live',
-                                style: TextStyle(
-                                  color: Colors.deepOrange, // Primary color
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 18
-                                ),
-                              ),
-                              const SizedBox(width: 4),
-                              const Icon(Icons.arrow_forward_ios, size: 18 , color: Colors.deepOrange),
+                              Text('Shopee Live', style: TextStyle(color: Colors.deepOrange, fontWeight: FontWeight.bold, fontSize: 18)),
+                              SizedBox(width: 4),
+                              Icon(Icons.arrow_forward_ios, size: 18, color: Colors.deepOrange),
                             ],
                           ),
                         ),
@@ -171,11 +182,11 @@ class HomePage extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               ClipRRect(
-                                borderRadius: BorderRadius.circular(8), // Border radius gambar 16
+                                borderRadius: BorderRadius.circular(12),
                                 child: Image.asset('assets/images/image 5.jpg', height: 120),
                               ),
                               ClipRRect(
-                                borderRadius: BorderRadius.circular(8), // Border radius gambar 16
+                                borderRadius: BorderRadius.circular(12),
                                 child: Image.asset('assets/images/image 6.jpg', height: 120),
                               ),
                             ],
@@ -185,31 +196,26 @@ class HomePage extends StatelessWidget {
                     ),
                   ),
                 ),
+
+                // Shopee Video
                 Expanded(
                   child: Container(
-                    height: 180 , // Sesuai permintaan awal
+                    height: 180,
                     margin: const EdgeInsets.only(right: 10, top: 8, left: 5),
                     decoration: BoxDecoration(
-                      color: Colors.white, // Background putih
+                      color: Colors.white,
                       borderRadius: BorderRadius.circular(15),
                     ),
                     child: Stack(
                       children: [
-                        Positioned(
+                        const Positioned(
                           top: 8,
                           left: 8,
                           child: Row(
                             children: [
-                              Text(
-                                'Shopee Video',
-                                style: TextStyle(
-                                  color: Colors.deepOrange, // Primary color
-                                  fontWeight: FontWeight.bold,
-                                    fontSize: 18
-                                ),
-                              ),
-                              const SizedBox(width: 4),
-                              const Icon(Icons.arrow_forward_ios, size: 18, color: Colors.deepOrange),
+                              Text('Shopee Video', style: TextStyle(color: Colors.deepOrange, fontWeight: FontWeight.bold, fontSize: 18)),
+                              SizedBox(width: 4),
+                              Icon(Icons.arrow_forward_ios, size: 18, color: Colors.deepOrange),
                             ],
                           ),
                         ),
@@ -221,11 +227,11 @@ class HomePage extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                             children: [
                               ClipRRect(
-                                borderRadius: BorderRadius.circular(8), // Border radius gambar 16
+                                borderRadius: BorderRadius.circular(12),
                                 child: Image.asset('assets/images/image 7.jpg', height: 120),
                               ),
                               ClipRRect(
-                                borderRadius: BorderRadius.circular(8), // Border radius gambar 16
+                                borderRadius: BorderRadius.circular(12),
                                 child: Image.asset('assets/images/image 8.jpg', height: 120),
                               ),
                             ],
@@ -238,9 +244,7 @@ class HomePage extends StatelessWidget {
               ],
             ),
 
-
-
-// 🛍️ Grid Produk dengan border radius 15
+            // Produk
             Container(
               margin: const EdgeInsets.symmetric(horizontal: 10),
               width: double.infinity,
@@ -252,7 +256,7 @@ class HomePage extends StatelessWidget {
                   GridView.builder(
                     shrinkWrap: true,
                     physics: const NeverScrollableScrollPhysics(),
-                    itemCount: products.length + 1, // ✅ Tambah 1 item untuk slider
+                    itemCount: products.length + 1,
                     gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 2,
                       mainAxisExtent: 220,
@@ -261,7 +265,6 @@ class HomePage extends StatelessWidget {
                     ),
                     itemBuilder: (context, index) {
                       if (index == 0) {
-                        // ✅ Container Khusus untuk Slider
                         return Container(
                           decoration: BoxDecoration(
                             color: Colors.white,
@@ -296,8 +299,7 @@ class HomePage extends StatelessWidget {
                         );
                       }
 
-                      // ✅ Produk lainnya dari daftar
-                      final product = products[index - 1]; // Sesuaikan index karena slider ada di posisi pertama
+                      final product = products[index - 1];
                       return Container(
                         decoration: BoxDecoration(
                           color: Colors.white,
@@ -322,10 +324,7 @@ class HomePage extends StatelessWidget {
                                 product['title'] ?? '',
                                 maxLines: 2,
                                 overflow: TextOverflow.ellipsis,
-                                style: const TextStyle(
-                                  fontWeight: FontWeight.normal, // ✅ Font Regular
-                                  fontSize: 14,
-                                ),
+                                style: const TextStyle(fontWeight: FontWeight.normal, fontSize: 14),
                               ),
                             ),
                             Padding(
@@ -333,8 +332,8 @@ class HomePage extends StatelessWidget {
                               child: Text(
                                 product['price'] ?? '',
                                 style: const TextStyle(
-                                  fontWeight: FontWeight.bold, // ✅ Font Bold
-                                  color: Colors.deepOrange, // ✅ Warna Primary
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.deepOrange,
                                   fontSize: 18,
                                 ),
                               ),
@@ -347,8 +346,6 @@ class HomePage extends StatelessWidget {
                 ],
               ),
             ),
-
-
 
             const SizedBox(height: 16),
           ],
