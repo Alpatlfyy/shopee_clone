@@ -134,17 +134,18 @@ class _TermurahSubScreenState extends State<TermurahSubScreen>
         ),
       ),
       body: ListView(
+
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 8),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
-                _buildCategoryIcon('assets/images/vhr.jpg', 'Voucher\nHari Ini'),
-                _buildCategoryIcon('assets/images/dm.jpg', 'Diskon\nMenyala'),
-                _buildCategoryIcon('assets/images/jpm.jpg', 'Jaminan\nPaling Murah'),
-                _buildCategoryIcon('assets/images/cct.jpg', 'Cara Cari\nTermurah'),
-                _buildCategoryIcon('assets/images/bbk.jpg', 'Belanja Bds.\nKategori'),
+                _buildCategoryIcon('assets/images/vhr.png', 'Voucher\nHari Ini'),
+                _buildCategoryIcon('assets/images/dm.png', 'Diskon\nMenyala'),
+                _buildCategoryIcon('assets/images/jmp.png', 'Jaminan\nPaling Murah'),
+                _buildCategoryIcon('assets/images/cct.png', 'Cara Cari\nTermurah'),
+                _buildCategoryIcon('assets/images/bbk.png', 'Belanja Bds.\nKategori'),
               ],
             ),
           ),
@@ -292,7 +293,7 @@ class _TermurahSubScreenState extends State<TermurahSubScreen>
         CircleAvatar(
           radius: 20,
           backgroundColor: Colors.grey[200],
-          child: Image.asset(imagePath, width: 24, height: 24),
+          child: Image.asset(imagePath, width: 50, height: 50),
         ),
         const SizedBox(height: 6),
         Text(
