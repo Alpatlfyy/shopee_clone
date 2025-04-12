@@ -50,6 +50,7 @@ dev_dependencies:
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+  google_fonts: ^6.1.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -111,6 +112,21 @@ flutter:
     - assets/images/icon8.png
     - assets/images/icon9.png
     - assets/images/icon10.png
+    - assets/pln.png
+    - assets/xl.png
+    - assets/banner_promo1.png
+    - assets/tokenpln.png
+    - assets/train.png
+    - assets/wifii.png
+    - assets/spaylater.png
+    - assets/asuransi1.png
+    - assets/asuransi2.png
+    - assets/voucher.png
+    - assets/shipping.png
+    - assets/vipday.png
+    - assets/cs.png
+    - assets/food.png
+    - assets/discount.png
     - assets/images/icon11.png
     - assets/images/icon12.png
     - assets/images/icon13.png
@@ -141,6 +157,22 @@ flutter:
     - assets/images/icon37.jpg
 
 
+    - assets/images/sgame1.png
+    - assets/images/sgame2.png
+    - assets/images/sgame3.png
+    - assets/images/sgame4.png
+    - assets/images/sgame5.png
+    - assets/images/sgame6.png
+    - assets/images/sgame7.png
+    - assets/images/sgame8.png
+    - assets/images/splokal1.png
+    - assets/images/splokal2.png
+    - assets/images/splokal3.png
+    - assets/images/splokal4.png
+    - assets/images/spsekitar1.png
+    - assets/images/spsekitar2.png
+    - assets/images/spsekitar3.png
+    - assets/images/spsekitar4.png
 
 
     - assets/videos/video_1.mp4
